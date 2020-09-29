@@ -4,12 +4,22 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		int[] myIntArray = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 		for (int n : myIntArray) {
+			System.out.println(iterativeSearch(myIntArray, n));
 			System.out.println(binarySearchIterative(myIntArray, n));
 			System.out.println(binarySearchRecursive(myIntArray, n));
 			System.out.println();
 		}
 	}
 
+	public static int iterativeSearch(int[] arr, int search) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == search) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	public static int binarySearchRecursive(int[] arr, int search) {
 		return binarySearchRecursive(arr, search, 0, arr.length);
 	}
