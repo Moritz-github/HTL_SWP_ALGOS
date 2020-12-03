@@ -8,7 +8,7 @@ public class Fakultauet {
 		Scanner reader = new Scanner(System.in);
 		int n = reader.nextInt();
 			
-		System.out.println(fibonacci_recursive(5));
+		System.out.println(faculty(5));
 	}
 
 	public static int faculty(int n){
