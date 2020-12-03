@@ -10,6 +10,7 @@ public class BubbleSort {
 		
 		for(int i : b){
 			System.out.println(i + " ");
+		}
 	}
 	
 	public static int[] bubblesort(int[] toSort) {
