@@ -21,8 +21,10 @@ public class Main {
 		Insertionsort.heimSORT(toSort);
 		int[] sorted = BubbleSort.bubblesort(toSort);
 		
+		
+		SelectionSort.selectionSort(toSort);
 		//System.out.println(Binarysearch.Binarysearch(toSort, 22));
-		for (int i : sorted) {
+		for (int i : toSort) {
 			System.out.println(i);
 		}
 	}
