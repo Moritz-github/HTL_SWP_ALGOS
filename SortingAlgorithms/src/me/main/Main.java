@@ -16,10 +16,13 @@ public class Main {
 	public static void main(String[] args) {
 		int[] toSort = getRandomIntArr(10, 10);
 		
-		int[] sortedArray = Insertionsort.sort(toSort, new int[toSort.length], 0);
+		//int[] sortedArray = Insertionsort.sort(toSort, new int[toSort.length], 0);
+		
+		Insertionsort.heimSORT(toSort);
+		int[] sorted = BubbleSort.bubblesort(toSort);
 		
 		//System.out.println(Binarysearch.Binarysearch(toSort, 22));
-		for (int i : sortedArray) {
+		for (int i : sorted) {
 			System.out.println(i);
 		}
 	}
