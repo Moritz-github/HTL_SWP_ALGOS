@@ -1,14 +1,19 @@
 package me.main;
 
-public class SelectionSort {
+public class SelectionSort extends SortClass {
 
-	public static void selectionSort(int[] arr) {
-		
+	public SelectionSort() {
+		super.name = "Selection Sort";
+	}
+	
+	
+	@Override
+	public void Sort(int[] arr) {
+		super.StartTimer();
 		int n = arr.length;
 		int i;
 		int j;
 		int lowestI;
-		int temp;
 
 		for (i = 0; i < n - 1; i++) {
 			lowestI = i;
@@ -20,10 +25,9 @@ public class SelectionSort {
 			}
 
 			if (lowestI != i) {
-				temp = arr[i];
-				arr[i] = arr[lowestI];
-				arr[lowestI] = temp;
+				super.Swap(arr, i, lowestI);
 			}
 		}
+		super.EndTimer();
 	}
 }

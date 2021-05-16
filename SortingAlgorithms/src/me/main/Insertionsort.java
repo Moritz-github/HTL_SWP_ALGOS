@@ -1,58 +1,28 @@
 package me.main;
 
-import java.util.Arrays;
+public class Insertionsort extends SortClass {
 
-public class Insertionsort {
-
-	public static void swap(int[] swap, int s1, int s2) {
-		int temp = swap[s1];
-		swap[s1] = swap[s2];
-		swap[s2] = temp;
+	public Insertionsort() {
+		super.name = "Insertion Sort";
 	}
-
-	public static void heimSORT(int[] toSort) {
-		for (int x = 1; x < toSort.length; x++) {
-			for (int y = x; y >= 1; y--) {
-				if (toSort[y] >= toSort[y - 1]) {
-					break;
-				}
-				swap(toSort, y, y - 1);
+	
+	@Override
+	public void Sort(int[] arr) {
+		super.StartTimer();
+		
+		int n = arr.length;
+		for (int i = 1; i < n; ++i) {
+			int key = arr[i];
+			int j = i - 1;
+			while (j >= 0 && arr[j] > key) {
+				super.swaps += 1;
+				arr[j + 1] = arr[j];
+				j = j - 1;
 			}
+			super.swaps += 1;
+			arr[j + 1] = key;
 		}
-	}
-
-	public static int[] sort(int[] toSort, int[] sortedArray, int sortedArrayLen) {
-		int nextInt = toSort[0];
-		int posInSortedArray;
-
-		posInSortedArray = Math.abs(Arrays.binarySearch(sortedArray, 0, sortedArrayLen, nextInt) + 1);
-
-		int[] newSortedArray = new int[sortedArray.length];
-
-		if ((posInSortedArray + 1) == sortedArrayLen) {
-			newSortedArray[posInSortedArray + 1] = nextInt;
-		}
-
-		int temp1 = 0;
-		int temp2 = nextInt;
-
-		boolean temp2Overwrite = true;
-
-		newSortedArray = sortedArray.clone();
-		for (int i = posInSortedArray; i < newSortedArray.length - 1; i++) {
-			if (temp2Overwrite) {
-				temp1 = newSortedArray[i];
-				newSortedArray[i] = temp2;
-			} else {
-				temp2 = newSortedArray[i];
-				newSortedArray[i] = temp1;
-			}
-			temp2Overwrite = !temp2Overwrite;
-		}
-		int[] newToSort = Arrays.copyOfRange(toSort, 1, toSort.length);
-		if (newToSort.length == 0) {
-			return newSortedArray;
-		}
-		return sort(newToSort, newSortedArray, sortedArrayLen + 1);
+		
+		super.EndTimer();
 	}
 }

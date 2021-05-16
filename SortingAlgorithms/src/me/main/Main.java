@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
+	
+	static int iterations = 100;
+	static int arrSize = 10000;
+	static int arrMaxSize = 10000;
+	
 	public static int[] getRandomIntArr(int arraySize, int maxNumSize) {
 		int[] arr = new int[arraySize];
 		Random r = new Random();
@@ -14,18 +19,32 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		int[] toSort = getRandomIntArr(10, 10);
+		System.out.println("Let's get this started!");
 		
-		//int[] sortedArray = Insertionsort.sort(toSort, new int[toSort.length], 0);
+		BubbleSort bs = new BubbleSort();
+		QuickSort qs = new QuickSort();
+		SelectionSort ss = new SelectionSort();
+		Insertionsort is = new Insertionsort();
 		
-		Insertionsort.heimSORT(toSort);
-		int[] sorted = BubbleSort.bubblesort(toSort);
-		
-		
-		SelectionSort.selectionSort(toSort);
-		//System.out.println(Binarysearch.Binarysearch(toSort, 22));
-		for (int i : toSort) {
-			System.out.println(i);
+		for (int i = 0; i < iterations; i++) {
+			bs.Sort(getRandomIntArr(arrSize, arrMaxSize));
 		}
+		bs.PrintInfo();
+		
+		for (int i = 0; i < iterations; i++) {
+			qs.Sort(getRandomIntArr(arrSize, arrMaxSize));
+		}
+		qs.PrintInfo();
+		
+		for (int i = 0; i < iterations; i++) {
+			ss.Sort(getRandomIntArr(arrSize, arrMaxSize));
+		}
+		ss.PrintInfo();
+		
+		for (int i = 0; i < iterations; i++) {
+			is.Sort(getRandomIntArr(arrSize, arrMaxSize));
+		}
+		is.PrintInfo();
+		
 	}
 }
